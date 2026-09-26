@@ -735,6 +735,8 @@ body {
     justify-content: center;
     gap: 12px;
     margin-bottom: 16px;
+    flex-wrap: wrap;
+    row-gap: 8px;
 }
 
 .counter-item {
@@ -776,6 +778,18 @@ body {
     font-size: 1.4rem;
     color: var(--wine-700);
     margin-top: 8px;
+}
+
+/* Versão em texto corrido — só aparece no celular */
+.counter-text-mobile {
+    display: none;
+    font-family: var(--font-hand);
+    font-size: 1.55rem;
+    line-height: 1.55;
+    color: var(--wine-800);
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 8px;
 }
 
 /* Linha do tempo estilo diário de memórias */
@@ -1578,16 +1592,12 @@ body {
         padding: 16px 18px;
     }
 
+    /* Contador: no mobile mostra texto corrido, esconde as caixinhas */
     .counter-grid {
-        gap: 6px;
+        display: none;
     }
 
-    .counter-item {
-        min-width: 58px;
-        padding: 6px 4px;
-    }
-
-    .counter-number {
-        font-size: 1.6rem;
+    .counter-text-mobile {
+        display: block;
     }
 }

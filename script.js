@@ -174,6 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const elHours = document.getElementById('c-hours');
     const elMins = document.getElementById('c-mins');
     const elSecs = document.getElementById('c-secs');
+    const elMobileText = document.getElementById('counter-text-mobile');
 
     function updateCounter() {
         const agora = new Date();
@@ -213,6 +214,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (elHours) elHours.textContent = String(horas).padStart(2, '0');
         if (elMins) elMins.textContent = String(minutos).padStart(2, '0');
         if (elSecs) elSecs.textContent = String(segundos).padStart(2, '0');
+
+        // Texto corrido para o mobile
+        if (elMobileText) {
+            const mLabel = meses === 1 ? 'mês' : 'meses';
+            const dLabel = dias === 1 ? 'dia' : 'dias';
+            elMobileText.textContent = `${meses} ${mLabel}, ${dias} ${dLabel}, ${String(horas).padStart(2,'0')} horas, ${String(minutos).padStart(2,'0')} minutos e ${String(segundos).padStart(2,'0')} segundos`;
+        }
     }
 
     updateCounter();
