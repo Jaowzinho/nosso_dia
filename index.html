@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para a Minha Pessoa Favorita ❤️</title>
+
+    <!-- Meta tags / Compartilhamento -->
+    <meta name="description" content="Um cantinho especial feito com todo o amor para a minha pessoa favorita.">
+    <meta property="og:title" content="Para a Minha Pessoa Favorita ❤️">
+    <meta property="og:description" content="Tenho uma coisa pra te contar...">
+    <meta property="og:type" content="website">
+
+    <!-- Tipografia Elegante & Afetiva -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Folha de Estilos -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Fundo com partículas sutis e aconchegantes -->
+    <canvas id="ambient-canvas"></canvas>
+
+    <!-- 1. TELA INICIAL (HERO) -->
+    <header class="hero-section" id="inicio">
+        <div class="hero-container">
+            <div class="hero-tag">
+                <span>26 de Agosto • Nossa História</span>
+            </div>
+
+            <h1 class="hero-title">
+                Para a minha <em>pessoa favorita</em>
+            </h1>
+
+            <p class="hero-subtitle">
+                Fiz esse cantinho pra gente guardar um pouco de tudo que já vivemos até aqui. Cada momento com você é
+                especial.
+            </p>
+
+            <div class="hero-actions">
+                <button class="btn-romance" id="btn-contar">
+                    <span>Tenho uma coisa pra te contar…</span>
+                    <span class="btn-heart">💌</span>
+                </button>
+            </div>
+
+            <a href="#carta" class="scroll-down-hint" aria-label="Rolar para baixo">
+                <span class="scroll-text">deslize para ler</span>
+                <span class="scroll-arrow">↓</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="main-content">
+
+        <!-- 2. A CARTINHA (ENVELOPE TÁTIL & CARTA) -->
+        <section class="section letter-section" id="carta">
+            <div class="section-heading">
+                <span class="section-eyebrow">Com todo o meu amor</span>
+                <h2 class="section-title">Uma Cartinha Para Você</h2>
+            </div>
+
+            <div class="letter-scene">
+                <!-- Envelope decorativo já aberto ao fundo -->
+                <div class="envelope-backdrop">
+                    <div class="envelope-flap-open">
+                        <div class="open-seal" title="Com amor"></div>
+                    </div>
+                </div>
+
+                <!-- Folha da Carta sempre aberta e visível -->
+                <article class="letter-paper" id="letter-paper">
+                    <div class="letter-header">
+                        <span class="letter-location">São Paulo • Momentos que marcam</span>
+                    </div>
+
+                    <h3 class="letter-salutation">Minha linda,</h3>
+
+                    <div class="letter-paragraphs" id="letter-text-content">
+                        <p>
+                            Fiz esse cantinho pra gente não esquecer de onde tudo começou.
+                            Parece que foi ontem que a gente começou a conversar no final de agosto,
+                            mas a sensação é de que você já faz parte da minha vida há muito mais tempo.
+                        </p>
+                        <p>
+                            De uma conversa boba que começou na academia até as voltas na represa,
+                            o nosso primeiro beijo e aquele show do Summer Beats...
+                            cada pedacinho com você tem sido leve, engraçado e especial demais.
+                        </p>
+                        <p>
+                            Obrigado por ser essa pessoa tão incrível e por fazer o meu dia muito mais feliz.
+                            O resto eu te conto olhando nos seus olhos.
+                        </p>
+                    </div>
+
+                    <div class="letter-signature">
+                        <span>Com todo o meu carinho,</span>
+                        <span class="handwritten-sign">Xuão ❤️</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 3. NOSSOS MOMENTOS (POLAROIDS COM FOTOS REAIS OU UPLOAD FÁCIL) -->
+        <section class="section moments-section" id="momentos">
+            <div class="section-heading">
+                <span class="section-eyebrow">Memórias que guardo com carinho</span>
+                <h2 class="section-title">Nossos Momentos</h2>
+                <p class="section-sub">Instantes que ficaram gravados na nossa memória.</p>
+            </div>
+
+            <!-- Dica amigável de fotos -->
+            <div class="photo-uploader-bar">
+                <span class="camera-icon">📷</span>
+                <span class="uploader-text">Você pode clicar em qualquer polaroid para <strong>ver de perto</strong>!</span>
+            </div>
+
+            <div class="polaroids-shelf">
+                <!-- Polaroid 1: Nós Dois Sendo Bobos -->
+                <div class="polaroid-wrapper tilt-1" data-id="nosdois">
+                    <div class="washi-tape tape-rose"></div>
+                    <div class="polaroid-card">
+                        <div class="polaroid-frame" title="Clique para ver em tela cheia">
+                            <img src="assets/parque.jpg" alt="A gente sendo bobo juntos fazendo careta"
+                                class="polaroid-img" id="img-parque" style="object-position: center 20%;"
+                                loading="lazy">
+                            <div class="polaroid-overlay">
+                                <span>🔍 Ver de perto</span>
+                            </div>
+                        </div>
+                        <div class="polaroid-footer">
+                            <span class="polaroid-date">06/09 • Nossa primeira foto</span>
+                            <span class="polaroid-note">A gente sendo bobo juntos 😜❤️</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Polaroid 2: Summer Beats com a Rosa -->
+                <div class="polaroid-wrapper tilt-2" data-id="summer">
+                    <div class="washi-tape tape-kraft"></div>
+                    <div class="polaroid-card">
+                        <div class="polaroid-frame" title="Clique para ver em tela cheia">
+                            <img src="assets/summer-beats.jpg" alt="Ela com a rosa no Summer Beats" class="polaroid-img"
+                                id="img-summer" style="object-position: center 15%;" loading="lazy">
+                            <div class="polaroid-overlay">
+                                <span>🔍 Ver de perto</span>
+                            </div>
+                        </div>
+                        <div class="polaroid-footer">
+                            <span class="polaroid-date">13/09 • Summer Beats</span>
+                            <span class="polaroid-note">Sua luz e a sua rosa 🌹✨</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Polaroid 3: Cinema & Shopping -->
+                <div class="polaroid-wrapper tilt-3" data-id="cinema">
+                    <div class="washi-tape tape-sage"></div>
+                    <div class="polaroid-card">
+                        <div class="polaroid-frame" title="Clique para ver em tela cheia">
+                            <img src="assets/represa.jpg" alt="Momento divertido no cinema e shopping"
+                                class="polaroid-img" id="img-represa" style="object-position: center 30%;"
+                                loading="lazy">
+                            <div class="polaroid-overlay">
+                                <span>🔍 Ver de perto</span>
+                            </div>
+                        </div>
+                        <div class="polaroid-footer">
+                            <span class="polaroid-date">11/09 • Shopping & Cinema</span>
+                            <span class="polaroid-note">Risadas no cinema 🍿😂</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. NOSSA HISTÓRIA (LINHA DO TEMPO & CONTADOR) -->
+        <section class="section story-section" id="historia">
+            <div class="section-heading">
+                <span class="section-eyebrow">Como tudo começou</span>
+                <h2 class="section-title">Nossa História</h2>
+                <p class="section-sub">Os dias que marcaram o início de tudo.</p>
+            </div>
+
+            <!-- Contador de tempo fofo -->
+            <div class="counter-card" id="time-counter-box">
+                <div class="counter-header">
+                    <span class="counter-clock-icon">⏳</span>
+                    <span class="counter-title">Tempo desde que começamos a conversar:</span>
+                    <span class="counter-date-badge">26 de Agosto</span>
+                </div>
+
+                <div class="counter-grid">
+                    <div class="counter-item">
+                        <span class="counter-number" id="c-months">0</span>
+                        <span class="counter-unit">Meses</span>
+                    </div>
+                    <div class="counter-sep">:</div>
+                    <div class="counter-item">
+                        <span class="counter-number" id="c-days">0</span>
+                        <span class="counter-unit">Dias</span>
+                    </div>
+                    <div class="counter-sep">:</div>
+                    <div class="counter-item">
+                        <span class="counter-number" id="c-hours">00</span>
+                        <span class="counter-unit">Horas</span>
+                    </div>
+                    <div class="counter-sep">:</div>
+                    <div class="counter-item">
+                        <span class="counter-number" id="c-mins">00</span>
+                        <span class="counter-unit">Minutos</span>
+                    </div>
+                    <div class="counter-sep">:</div>
+                    <div class="counter-item">
+                        <span class="counter-number" id="c-secs">00</span>
+                        <span class="counter-unit">Segundos</span>
+                    </div>
+                </div>
+
+                <div class="counter-phrase">
+                    ... e cada momento valeu a pena. ❤️
+                </div>
+            </div>
+
+            <!-- Linha do Tempo em estilo diário pessoal -->
+            <div class="journal-timeline">
+
+                <!-- 1. 26/08 -->
+                <div class="journal-entry">
+                    <div class="journal-date-col">
+                        <span class="day-badge">26</span>
+                        <span class="month-badge">Agosto</span>
+                    </div>
+                    <div class="journal-dot"></div>
+                    <div class="journal-content-card">
+                        <h3 class="entry-title">O começo de tudo</h3>
+                        <p class="entry-desc">
+                            O dia em que a gente começou a conversar. Uma mensagem que, sem a gente imaginar,
+                            virou a melhor conversa de todos os dias.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 2. 27/08 -->
+                <div class="journal-entry">
+                    <div class="journal-date-col">
+                        <span class="day-badge">27</span>
+                        <span class="month-badge">Agosto</span>
+                    </div>
+                    <div class="journal-dot"></div>
+                    <div class="journal-content-card">
+                        <h3 class="entry-title">Nossa primeira conversa na academia</h3>
+                        <p class="entry-desc">
+                            O dia em que conversamos pessoalmente pela primeira vez na academia.
+                            Ver o seu sorriso de perto mudou o ritmo do dia.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 3. 29/08 -->
+                <div class="journal-entry">
+                    <div class="journal-date-col">
+                        <span class="day-badge">29</span>
+                        <span class="month-badge">Agosto</span>
+                    </div>
+                    <div class="journal-dot"></div>
+                    <div class="journal-content-card">
+                        <h3 class="entry-title">Uma volta na Represa do Guarapiranga</h3>
+                        <p class="entry-desc">
+                            Nosso primeiro passeio para conversar melhor, rir e nos conhecermos de verdade.
+                            Aquele final de tarde que não dava vontade de ir embora.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 4. 30/08 (Destaque do Primeiro Beijo) -->
+                <div class="journal-entry highlight-entry">
+                    <div class="journal-date-col">
+                        <span class="day-badge heart-badge">30</span>
+                        <span class="month-badge">Agosto</span>
+                    </div>
+                    <div class="journal-dot dot-heart">❤️</div>
+                    <div class="journal-content-card special-entry">
+                        <div class="special-stamp">Dia Inesquecível</div>
+                        <h3 class="entry-title">Um dia cheio de primeiras vezes</h3>
+                        <p class="entry-desc">
+                            Fomos ao <strong>Parque Villa-Lobos</strong> com o grupo de jovens e, depois, demos uma
+                            esticada até o <strong>Shopping Morumbi</strong>.
+                            Assistimos ao nosso primeiro filme juntos (<em>Coyote vs. Acme</em>) e demos o nosso
+                            <strong>primeiro beijo</strong>.
+                            Um dia que ficou tatuado na memória!
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 5. 11/09 -->
+                <div class="journal-entry">
+                    <div class="journal-date-col">
+                        <span class="day-badge">11</span>
+                        <span class="month-badge">Setembro</span>
+                    </div>
+                    <div class="journal-dot"></div>
+                    <div class="journal-content-card">
+                        <h3 class="entry-title">Passeio na Liberdade</h3>
+                        <p class="entry-desc">
+                            O dia em que fomos na Liberdade com os seus amigos... e eles passaram o tempo todo me chamando de "varão"!
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 6. 13/09 -->
+                <div class="journal-entry">
+                    <div class="journal-date-col">
+                        <span class="day-badge">13</span>
+                        <span class="month-badge">Setembro</span>
+                    </div>
+                    <div class="journal-dot"></div>
+                    <div class="journal-content-card">
+                        <h3 class="entry-title">Nosso primeiro evento juntos</h3>
+                        <p class="entry-desc">
+                            Fomos ao <strong>Summer Beats</strong>! Nosso primeiro grande show juntos, curtindo música,
+                            cantando e colecionando mais uma memória linda ao seu lado.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 5. COISAS QUE EU GOSTO EM VOCÊ (CARDS SINCEROS & NATURAIS) -->
+        <section class="section reasons-section" id="detalhes">
+            <div class="section-heading">
+                <span class="section-eyebrow">Pequenos detalhes</span>
+                <h2 class="section-title">Coisas que eu gosto em você</h2>
+                <p class="section-sub">Toque em cada um para ver.</p>
+            </div>
+
+            <div class="reasons-grid">
+                <!-- 1 -->
+                <div class="reason-card" tabindex="0">
+                    <div class="reason-front">
+                        <span class="reason-number">01</span>
+                        <h4 class="reason-title">O seu sorriso</h4>
+                        <span class="reason-action">toque para ver</span>
+                    </div>
+                    <div class="reason-back">
+                        <p>Principalmente aquele sorriso espontâneo que você dá quando a gente tá rindo à toa de alguma
+                            besteira.</p>
+                    </div>
+                </div>
+
+                <!-- 2 -->
+                <div class="reason-card" tabindex="0">
+                    <div class="reason-front">
+                        <span class="reason-number">02</span>
+                        <h4 class="reason-title">Nossas conversas</h4>
+                        <span class="reason-action">toque para ver</span>
+                    </div>
+                    <div class="reason-back">
+                        <p>Aquele jeito gostoso que o assunto nunca acaba e a gente perde a noção da hora conversando.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 3 -->
+                <div class="reason-card" tabindex="0">
+                    <div class="reason-front">
+                        <span class="reason-number">03</span>
+                        <h4 class="reason-title">Treinar juntos</h4>
+                        <span class="reason-action">toque para ver</span>
+                    </div>
+                    <div class="reason-back">
+                        <p>Ver você na academia e como a sua presença faz qualquer treino ficar mil vezes melhor.</p>
+                    </div>
+                </div>
+
+                <!-- 4 -->
+                <div class="reason-card" tabindex="0">
+                    <div class="reason-front">
+                        <span class="reason-number">04</span>
+                        <h4 class="reason-title">Nosso primeiro beijo</h4>
+                        <span class="reason-action">toque para ver</span>
+                    </div>
+                    <div class="reason-back">
+                        <p>Aquele momento lá no Shopping Morumbi que eu nunca vou esquecer. Deu frio na barriga e foi
+                            perfeito.</p>
+                    </div>
+                </div>
+
+                <!-- 5 -->
+                <div class="reason-card" tabindex="0">
+                    <div class="reason-front">
+                        <span class="reason-number">05</span>
+                        <h4 class="reason-title">Cantar nossa música</h4>
+                        <span class="reason-action">toque para ver</span>
+                    </div>
+                    <div class="reason-back">
+                        <p>Ouvir "Medo Bobo" e lembrar exatamente de cada passo que a gente deu até aqui.</p>
+                    </div>
+                </div>
+
+                <!-- 6 -->
+                <div class="reason-card" tabindex="0">
+                    <div class="reason-front">
+                        <span class="reason-number">06</span>
+                        <h4 class="reason-title">O seu abraço</h4>
+                        <span class="reason-action">toque para ver</span>
+                    </div>
+                    <div class="reason-back">
+                        <p>O melhor lugar do mundo para se estar. Um abraço que traz calma e faz tudo fazer sentido.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. NOSSA MÚSICA (MEDO BOBO) -->
+        <section class="section music-section" id="musica">
+            <div class="section-heading">
+                <span class="section-eyebrow">Trilha sonora</span>
+                <h2 class="section-title">A Nossa Música</h2>
+            </div>
+
+            <style>
+                .spotify-wrapper {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 40px;
+                    background: var(--bg-card, #fff);
+                    padding: 36px;
+                    border-radius: var(--radius-lg, 24px);
+                    box-shadow: var(--shadow-card, 0 16px 36px -8px rgba(60, 40, 50, 0.1));
+                    max-width: 760px;
+                    margin: 0 auto;
+                }
+                .spotify-player-box {
+                    flex: 1;
+                    max-width: 360px;
+                    width: 100%;
+                }
+                .spotify-quote-box {
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                }
+                .music-lyrics {
+                    font-size: 1.15rem;
+                    line-height: 1.6;
+                    color: var(--text-primary, #2C2225);
+                    text-align: center;
+                    max-height: 300px;
+                    overflow-y: auto;
+                    padding: 0 16px;
+                    font-family: var(--font-serif, serif);
+                }
+                .music-lyrics p {
+                    margin-bottom: 16px;
+                }
+                .music-lyrics p.chorus {
+                    font-size: 1.3rem;
+                    color: var(--wine-800, #781C2C);
+                    font-family: var(--font-hand, 'Caveat', cursive);
+                    font-weight: bold;
+                }
+                
+                /* Estilizando o scrollbar da letra */
+                .music-lyrics::-webkit-scrollbar {
+                    width: 6px;
+                }
+                .music-lyrics::-webkit-scrollbar-track {
+                    background: rgba(200, 180, 170, 0.2); 
+                    border-radius: 4px;
+                }
+                .music-lyrics::-webkit-scrollbar-thumb {
+                    background: var(--wine-600, #B83A4E); 
+                    border-radius: 4px;
+                }
+                
+                @media (max-width: 768px) {
+                    .spotify-wrapper {
+                        flex-direction: column;
+                        padding: 24px 20px;
+                        gap: 28px;
+                    }
+                    .music-lyrics {
+                        max-height: 220px;
+                    }
+                }
+            </style>
+
+            <div class="music-card-container">
+                <div class="spotify-wrapper">
+                    <!-- Widget do Spotify -->
+                    <div class="spotify-player-box">
+                        <iframe style="border-radius:12px;" src="https://open.spotify.com/embed/track/2CW04trIoYMbroZWDzPAjs?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    </div>
+                    
+                    <!-- Letra da Música -->
+                    <div class="spotify-quote-box">
+                        <div class="music-lyrics">
+                            <p>
+                                Ah, esse tom de voz eu reconheço<br>
+                                Mistura de medo e desejo<br>
+                                Tô aplaudindo a sua coragem de me ligar
+                            </p>
+                            <p>
+                                Eu pensei que só tava alimentando<br>
+                                Uma loucura da minha cabeça<br>
+                                Mas quando ouvi sua voz, respirei aliviado
+                            </p>
+                            <p>
+                                Tanto amor guardado tanto tempo<br>
+                                A gente se prendendo à toa<br>
+                                Por conta de outro alguém<br>
+                                Só dá pra saber se acontecer
+                            </p>
+                            <p class="chorus">
+                                E na hora que eu te beijei<br>
+                                Foi melhor do que eu imaginei<br>
+                                Se eu soubesse, tinha feito antes<br>
+                                No fundo sempre fomos bons amantes
+                            </p>
+                            <p>
+                                E na hora que eu te beijei<br>
+                                Foi melhor do que eu imaginei<br>
+                                Se eu soubesse, tinha feito antes<br>
+                                No fundo sempre fomos bons amantes<br>
+                                E no fundo sempre fomos bons amantes!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. SURPRESINHA FINAL -->
+        <section class="section surprise-section" id="surpresa">
+            <div class="surprise-card">
+                <div class="surprise-icon">🎁</div>
+                <h2 class="surprise-heading">Tenho só mais uma coisa pra te dizer…</h2>
+                <p class="surprise-caption">Um pequeno bilhetinho guardado para o final.</p>
+
+                <button class="btn-open-surprise" id="btn-surprise">
+                    <span>Clique aqui para ver</span>
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- MODAL DE SURPRESA SECRETA -->
+    <div class="modal-overlay" id="surprise-modal" role="dialog" aria-hidden="true">
+        <div class="modal-card">
+            <button class="modal-close" id="modal-close-btn" aria-label="Fechar">&times;</button>
+
+            <div class="modal-heart">💖</div>
+            <h3 class="modal-heading">Você é a minha pessoa favorita!</h3>
+
+            <div class="modal-message">
+                <p>
+                    Obrigado por cada conversa, cada risada na academia, cada momento no parque e na represa.
+                </p>
+                <p>
+                    Esse site é só uma forma simples de dizer o quanto você é especial pra mim e o quanto sou grato por
+                    ter você por perto.
+                </p>
+                <p class="modal-special-line">
+                    Que esse seja só o primeiro capítulo de muitos outros momentos lindos ao seu lado! ❤️
+                </p>
+            </div>
+
+            <div class="modal-action-row">
+                <button class="btn-hug" id="btn-love-click">
+                    <span>Aperte aqui para mandar um abraço ❤️</span>
+                    <span class="hug-counter" id="love-count-badge">0</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- MODAL LIGHTBOX DE FOTOS EM TELA CHEIA -->
+    <div class="lightbox-overlay" id="lightbox-modal">
+        <button class="lightbox-close-btn" id="lightbox-close">&times;</button>
+        <div class="lightbox-box">
+            <img src="" alt="Foto em alta resolução" id="lightbox-img">
+            <div class="lightbox-caption" id="lightbox-caption"></div>
+        </div>
+    </div>
+
+    <!-- RODAPÉ AFETIVO -->
+    <footer class="footer">
+        <p>Feito com amor por João para Evelyn 💞.</p>
+        <span class="footer-date">26 de Setembro de 2026 • Para sempre na memória</span>
+    </footer>
+
+    <!-- Script Principal -->
+    <script src="script.js"></script>
+</body>
+
+</html>

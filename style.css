@@ -1,0 +1,1593 @@
+/* ==========================================================================
+   DESIGN SYSTEM ROMÂNTICO & AFETIVO - PARA A MINHA PESSOA FAVORITA
+   Design artesanal, acolhedor, refinado e sem estética de IA
+   ========================================================================== */
+
+:root {
+    /* Paleta Orgânica, Acolhedora & Elegante (Papel, Vinho e Linho) */
+    --bg-page: #FAF7F2;
+    --bg-page-warm: #F4EFEA;
+    --bg-card: #FFFFFF;
+    --bg-card-subtle: #FBF8F5;
+    --bg-envelope: #F2E9DF;
+    --bg-envelope-pocket: #E9DDD0;
+    --bg-letter: #FFFDF9;
+
+    /* Tons de Vinho, Rosa Queimado e Terracota */
+    --wine-900: #54111E;
+    --wine-800: #781C2C;
+    --wine-700: #9E2A3B;
+    --wine-600: #B83A4E;
+    --rose-500: #D45D71;
+    --rose-300: #EAA8B3;
+    --rose-100: #FCECEF;
+    --rose-50:  #FFF5F6;
+
+    /* Fita Adesiva Decorativa (Washi Tape) */
+    --tape-rose: rgba(224, 155, 166, 0.7);
+    --tape-kraft: rgba(214, 187, 152, 0.75);
+    --tape-sage: rgba(168, 185, 164, 0.7);
+
+    /* Textos Naturais e Legíveis (Café / Carvão Aveludado) */
+    --text-primary: #2C2225;
+    --text-secondary: #5C4B51;
+    --text-muted: #8A777E;
+    --text-light: #FAF7F2;
+
+    /* Bordas e Detalhes Artesanais */
+    --border-soft: rgba(180, 150, 160, 0.22);
+    --border-accent: rgba(158, 42, 59, 0.25);
+    --border-dashed: rgba(158, 42, 59, 0.35);
+
+    /* Tipografia Humanizada */
+    --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-hand: 'Caveat', cursive, sans-serif;
+
+    /* Sombras Orgânicas e Suaves de Papel */
+    --shadow-soft: 0 10px 30px -5px rgba(60, 40, 50, 0.08), 0 4px 12px rgba(60, 40, 50, 0.04);
+    --shadow-card: 0 16px 36px -8px rgba(60, 40, 50, 0.1), 0 4px 12px rgba(60, 40, 50, 0.05);
+    --shadow-polaroid: 0 15px 35px -8px rgba(45, 30, 35, 0.16), 0 5px 12px rgba(0, 0, 0, 0.06);
+    --shadow-hover: 0 22px 45px -10px rgba(45, 30, 35, 0.2), 0 8px 18px rgba(0, 0, 0, 0.08);
+
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-full: 9999px;
+    --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ==========================================================================
+   RESET & ESTILOS GERAIS
+   ========================================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    background-color: var(--bg-page);
+    background-image: 
+        radial-gradient(at 10% 12%, rgba(245, 226, 230, 0.6) 0px, transparent 55%),
+        radial-gradient(at 88% 82%, rgba(242, 230, 220, 0.6) 0px, transparent 55%),
+        radial-gradient(at 50% 45%, rgba(255, 245, 247, 0.5) 0px, transparent 70%);
+    background-attachment: fixed;
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    line-height: 1.7;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+}
+
+/* Canvas de ambientação sutil */
+#ambient-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* ==========================================================================
+   MINI PLAYER NO CABEÇALHO (DISCRETO & ELEGANTE)
+   ========================================================================== */
+
+.header-music-pill {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 16px 8px 10px;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-soft);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.header-music-pill:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px -5px rgba(60, 40, 50, 0.15);
+    border-color: var(--wine-700);
+}
+
+.pill-disc {
+    width: 32px;
+    height: 32px;
+    background: var(--wine-800);
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    transition: transform 0.5s linear;
+}
+
+.pill-disc.playing {
+    animation: spinDisc 3s linear infinite;
+}
+
+@keyframes spinDisc {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.pill-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.pill-title {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.2;
+}
+
+.pill-artist {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+}
+
+.pill-btn {
+    background: var(--wine-700);
+    border: none;
+    color: #ffffff;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 11px;
+    transition: var(--transition);
+    margin-left: 4px;
+}
+
+.pill-btn:hover {
+    background: var(--wine-600);
+    transform: scale(1.08);
+}
+
+/* ==========================================================================
+   1. HERO SECTION (EDITORIAL & AFETIVA)
+   ========================================================================== */
+
+.hero-section {
+    position: relative;
+    min-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 24px 40px;
+    z-index: 2;
+}
+
+.hero-container {
+    max-width: 760px;
+    margin: 0 auto;
+    animation: heroFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes heroFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-tag {
+    display: inline-block;
+    padding: 6px 18px;
+    background: var(--rose-100);
+    border: 1px solid rgba(228, 168, 179, 0.4);
+    border-radius: var(--radius-full);
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--wine-800);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+}
+
+.hero-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2.4rem, 6vw, 4.2rem);
+    font-weight: 600;
+    line-height: 1.15;
+    margin-bottom: 20px;
+    color: var(--text-primary);
+    letter-spacing: -0.5px;
+}
+
+.hero-title em {
+    font-style: italic;
+    color: var(--wine-700);
+    font-weight: 500;
+    border-bottom: 2px solid var(--rose-300);
+    padding-bottom: 2px;
+}
+
+.hero-subtitle {
+    font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+    color: var(--text-secondary);
+    font-weight: 400;
+    max-width: 580px;
+    margin: 0 auto 36px;
+    line-height: 1.7;
+}
+
+.hero-actions {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 48px;
+}
+
+.btn-romance {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 36px;
+    background: var(--wine-700);
+    color: #ffffff;
+    font-family: var(--font-sans);
+    font-size: 1.05rem;
+    font-weight: 600;
+    border: none;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    box-shadow: 0 10px 25px -4px rgba(158, 42, 59, 0.35);
+    transition: var(--transition);
+}
+
+.btn-romance:hover {
+    background: var(--wine-800);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 32px -4px rgba(158, 42, 59, 0.45);
+}
+
+.btn-heart {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.btn-romance:hover .btn-heart {
+    transform: scale(1.2) rotate(10deg);
+}
+
+.scroll-down-hint {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: var(--transition);
+}
+
+.scroll-down-hint:hover {
+    color: var(--wine-700);
+}
+
+.scroll-arrow {
+    font-size: 1.2rem;
+    animation: gentleBounce 2s infinite ease-in-out;
+}
+
+@keyframes gentleBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+}
+
+/* ==========================================================================
+   CONTEÚDO PRINCIPAL & CABEÇALHOS DE SEÇÃO
+   ========================================================================== */
+
+.main-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+}
+
+.section {
+    padding: 70px 0;
+    position: relative;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.section-eyebrow {
+    display: block;
+    font-family: var(--font-hand);
+    font-size: 1.45rem;
+    color: var(--wine-600);
+    margin-bottom: 4px;
+}
+
+.section-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 4vw, 2.7rem);
+    color: var(--text-primary);
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.section-sub {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    max-width: 520px;
+    margin: 10px auto 0;
+}
+
+/* ==========================================================================
+   2. A CARTINHA (ENVELOPE JÁ ABERTO — ESTÁTICO E DECORATIVO)
+   ========================================================================== */
+
+/* ──────────────────────────────────────────────────────────
+   Layout da cena: envelope decorativo atrás, carta na frente
+   ────────────────────────────────────────────────────────── */
+
+.letter-scene {
+    max-width: 640px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Envelope decorativo já aberto (fundo / decoração) */
+.envelope-open {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    margin-bottom: -28px; /* carta sobrepõe levemente o envelope */
+}
+
+/* Aba dobrada para trás — triângulo com ponta para baixo, invertido */
+.env-flap-back {
+    width: 100%;
+    height: 80px;
+    background: #DDD1C4;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    position: relative;
+    z-index: 2;
+}
+
+/* Corpo do envelope */
+.env-body {
+    background: var(--bg-envelope);
+    border: 1px solid rgba(200, 178, 162, 0.5);
+    border-top: none;
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+    height: 90px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 14px;
+    box-shadow: var(--shadow-card);
+    position: relative;
+    z-index: 1;
+}
+
+.env-body-label {
+    font-family: var(--font-hand);
+    font-size: 1.1rem;
+    color: var(--wine-700);
+    opacity: 0.75;
+    letter-spacing: 0.5px;
+}
+
+/* Linha de costura do envelope */
+.env-body::before {
+    content: '';
+    position: absolute;
+    bottom: 36px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent 5%, rgba(180, 150, 140, 0.3) 20%, rgba(180, 150, 140, 0.3) 80%, transparent 95%);
+}
+
+/* ──────────────────────────────────────────────────────────
+   Carta sempre visível acima do envelope
+   ────────────────────────────────────────────────────────── */
+
+.letter-paper {
+    background: var(--bg-letter);
+    border-radius: var(--radius-sm);
+    box-shadow: 0 12px 40px rgba(60, 40, 50, 0.13), 0 4px 12px rgba(60, 40, 50, 0.07);
+    border: 1px solid rgba(220, 205, 195, 0.6);
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    padding: 40px 48px 44px;
+    /* carta sempre visível, sem animação */
+}
+
+/* Linha sutil de papel timbrado */
+.letter-paper::before {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    border: 1px dashed rgba(160, 130, 140, 0.22);
+    border-radius: 4px;
+    pointer-events: none;
+}
+
+.letter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    border-bottom: 1px solid rgba(180, 150, 160, 0.2);
+    padding-bottom: 12px;
+}
+
+.letter-location {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+.letter-salutation {
+    font-family: var(--font-serif);
+    font-size: 1.7rem;
+    color: var(--wine-900);
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.letter-paragraphs p {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--text-primary);
+    margin-bottom: 18px;
+}
+
+.letter-signature {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    color: var(--text-secondary);
+}
+
+.handwritten-sign {
+    font-family: var(--font-hand);
+    font-size: 2.2rem;
+    color: var(--wine-800);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+/* ==========================================================================
+   3. NOSSOS MOMENTOS (POLAROIDS AUTÊNTICAS & INTERATIVAS)
+   ========================================================================== */
+
+.photo-uploader-bar {
+    width: fit-content;
+    max-width: 92%;
+    margin: 0 auto 36px;
+    background: var(--bg-card);
+    border: 1px dashed var(--border-dashed);
+    border-radius: var(--radius-md);
+    padding: 12px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    box-shadow: var(--shadow-soft);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.photo-uploader-bar:hover {
+    transform: translateY(-2px);
+    border-color: var(--wine-600);
+    box-shadow: var(--shadow-card);
+}
+
+.camera-icon {
+    font-size: 1.25rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.uploader-text {
+    text-align: center;
+    line-height: 1.5;
+}
+
+.uploader-text strong {
+    color: var(--wine-700);
+    font-weight: 600;
+}
+
+.polaroids-shelf {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    justify-items: center;
+    margin-top: 20px;
+}
+
+.polaroid-wrapper {
+    position: relative;
+    max-width: 310px;
+    width: 100%;
+    transition: var(--transition);
+}
+
+/* Ângulos naturais de fotos coladas */
+.polaroid-wrapper.tilt-1 { transform: rotate(-2.5deg); }
+.polaroid-wrapper.tilt-2 { transform: rotate(2deg); }
+.polaroid-wrapper.tilt-3 { transform: rotate(-1.5deg); }
+
+.polaroid-wrapper:hover {
+    transform: rotate(0deg) translateY(-8px) scale(1.02);
+    z-index: 15;
+}
+
+/* Washi Tape realista no topo da Polaroid */
+.washi-tape {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90px;
+    height: 24px;
+    z-index: 5;
+    opacity: 0.85;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.tape-rose { background: var(--tape-rose); }
+.tape-kraft { background: var(--tape-kraft); }
+.tape-sage { background: var(--tape-sage); }
+
+.polaroid-card {
+    background: #FFFFFF;
+    padding: 16px 16px 20px;
+    border-radius: 2px;
+    box-shadow: var(--shadow-polaroid);
+    border: 1px solid rgba(220, 210, 205, 0.5);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.polaroid-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    background: #F4EFEB;
+    overflow: hidden;
+    margin-bottom: 14px;
+}
+
+.polaroid-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.polaroid-wrapper:hover .polaroid-img {
+    transform: scale(1.03);
+}
+
+.polaroid-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(44, 34, 37, 0.5);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    font-size: 0.88rem;
+    font-weight: 600;
+}
+
+.polaroid-frame:hover .polaroid-overlay {
+    opacity: 1;
+}
+
+.polaroid-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    padding-top: 4px;
+}
+
+.polaroid-date {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.polaroid-note {
+    font-family: var(--font-hand);
+    font-size: 1.4rem;
+    color: var(--text-primary);
+    text-align: center;
+    line-height: 1.25;
+}
+
+/* ==========================================================================
+   4. NOSSA HISTÓRIA (LINHA DO TEMPO & CONTADOR)
+   ========================================================================== */
+
+/* Contador de Tempo */
+.counter-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-lg);
+    padding: 32px 28px;
+    max-width: 640px;
+    margin: 0 auto 56px;
+    text-align: center;
+    box-shadow: var(--shadow-card);
+}
+
+.counter-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
+
+.counter-clock-icon {
+    font-size: 1.2rem;
+}
+
+.counter-title {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.counter-date-badge {
+    background: var(--rose-100);
+    color: var(--wine-800);
+    padding: 3px 10px;
+    border-radius: var(--radius-full);
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.counter-grid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.counter-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 72px;
+    padding: 8px 6px;
+    background: var(--bg-card-subtle);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-sm);
+}
+
+.counter-number {
+    font-family: var(--font-serif);
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--wine-800);
+    line-height: 1.1;
+}
+
+.counter-unit {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 4px;
+}
+
+.counter-sep {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--rose-300);
+    padding-bottom: 14px;
+}
+
+.counter-phrase {
+    font-family: var(--font-hand);
+    font-size: 1.4rem;
+    color: var(--wine-700);
+    margin-top: 8px;
+}
+
+/* Linha do tempo estilo diário de memórias */
+.journal-timeline {
+    position: relative;
+    max-width: 720px;
+    margin: 0 auto;
+    padding-left: 20px;
+}
+
+/* Linha vertical pontilhada */
+.journal-timeline::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    bottom: 20px;
+    left: 88px;
+    width: 2px;
+    background: repeating-linear-gradient(to bottom, var(--wine-600) 0, var(--wine-600) 5px, transparent 5px, transparent 10px);
+}
+
+.journal-entry {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.journal-date-col {
+    width: 68px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #FFFFFF;
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-sm);
+    padding: 6px 4px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.day-badge {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--wine-800);
+    line-height: 1;
+}
+
+.month-badge {
+    font-size: 0.68rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.journal-dot {
+    width: 14px;
+    height: 14px;
+    background: var(--wine-700);
+    border: 3px solid #FAF7F2;
+    border-radius: 50%;
+    margin-top: 14px;
+    flex-shrink: 0;
+    z-index: 2;
+    box-shadow: 0 0 0 2px var(--wine-700);
+}
+
+.dot-heart {
+    width: 24px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-left: -5px;
+}
+
+.journal-content-card {
+    background: #FFFFFF;
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-md);
+    padding: 22px 26px;
+    flex-grow: 1;
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition);
+}
+
+.journal-entry:hover .journal-content-card {
+    transform: translateX(4px);
+    box-shadow: var(--shadow-card);
+    border-color: var(--border-accent);
+}
+
+.entry-title {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    color: var(--wine-900);
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.entry-desc {
+    font-size: 0.96rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+}
+
+/* Evento especial (30/08 - Primeiro Beijo) */
+.highlight-entry .journal-content-card {
+    background: #FFFBFB;
+    border-color: var(--rose-300);
+    border-left: 4px solid var(--wine-700);
+}
+
+.special-stamp {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--wine-700);
+    background: var(--rose-100);
+    padding: 3px 10px;
+    border-radius: var(--radius-full);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+/* ==========================================================================
+   5. COISAS QUE EU GOSTO EM VOCÊ (CARDS SINCEROS)
+   ========================================================================== */
+
+.reasons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.reason-card {
+    background: #FFFFFF;
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-md);
+    padding: 28px 24px;
+    box-shadow: var(--shadow-soft);
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.reason-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-card);
+    border-color: var(--rose-300);
+}
+
+.reason-number {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    color: var(--rose-300);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.reason-title {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    color: var(--wine-900);
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.reason-action {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-style: italic;
+    display: block;
+}
+
+.reason-back {
+    display: none;
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px dashed var(--border-soft);
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    animation: fadeIn 0.3s ease;
+}
+
+.reason-card.is-active .reason-back {
+    display: block;
+}
+
+.reason-card.is-active .reason-action {
+    display: none;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   6. NOSSA MÚSICA (CARD ACONCHEGANTE MEDO BOBO)
+   ========================================================================== */
+
+.music-card-container {
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+.acoustic-player-card {
+    background: #FFFFFF;
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-lg);
+    padding: 36px 32px;
+    box-shadow: var(--shadow-card);
+    display: flex;
+    align-items: center;
+    gap: 36px;
+}
+
+.player-cover {
+    flex-shrink: 0;
+}
+
+.vinyl-record {
+    width: 140px;
+    height: 140px;
+    background: radial-gradient(circle, #2C2225 35%, #181214 70%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+    border: 3px solid rgba(255, 255, 255, 0.08);
+    transition: transform 0.5s linear;
+}
+
+.vinyl-record.is-playing {
+    animation: spinDisc 3.5s linear infinite;
+}
+
+.vinyl-center-art {
+    width: 52px;
+    height: 52px;
+    background: var(--wine-700);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+.vinyl-heart {
+    font-size: 20px;
+}
+
+.player-details {
+    flex-grow: 1;
+}
+
+.track-tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--wine-600);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.track-name {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    color: var(--text-primary);
+    font-weight: 700;
+    margin: 2px 0;
+}
+
+.track-artist {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-bottom: 14px;
+}
+
+.music-quote {
+    font-family: var(--font-hand);
+    font-size: 1.35rem;
+    color: var(--wine-800);
+    line-height: 1.3;
+    margin-bottom: 20px;
+}
+
+/* Barra de progresso */
+.player-timeline-box {
+    margin-bottom: 20px;
+}
+
+.progress-bar-bg {
+    width: 100%;
+    height: 5px;
+    background: var(--rose-100);
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    overflow: hidden;
+    margin-bottom: 6px;
+}
+
+.progress-bar-fill {
+    width: 0%;
+    height: 100%;
+    background: var(--wine-700);
+    border-radius: var(--radius-full);
+    transition: width 0.1s linear;
+}
+
+.time-display {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.player-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.btn-play-acoustic {
+    width: 48px;
+    height: 48px;
+    background: var(--wine-700);
+    border: none;
+    border-radius: 50%;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 6px 16px rgba(158, 42, 59, 0.35);
+    transition: var(--transition);
+}
+
+.btn-play-acoustic:hover {
+    background: var(--wine-800);
+    transform: scale(1.06);
+}
+
+.player-status-hint {
+    font-size: 0.86rem;
+    color: var(--text-secondary);
+}
+
+.external-music-links {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.link-btn {
+    font-size: 0.82rem;
+    padding: 6px 14px;
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.link-btn.spotify {
+    background: #1DB954;
+    color: #ffffff;
+}
+
+.link-btn.spotify:hover {
+    background: #1aa34a;
+}
+
+.link-btn.youtube {
+    background: #FF0000;
+    color: #ffffff;
+}
+
+.link-btn.youtube:hover {
+    background: #d90000;
+}
+
+/* ==========================================================================
+   7. SURPRESINHA FINAL
+   ========================================================================== */
+
+.surprise-card {
+    background: #FFFFFF;
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-lg);
+    padding: 48px 32px;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: var(--shadow-card);
+}
+
+.surprise-icon {
+    font-size: 2.8rem;
+    margin-bottom: 12px;
+}
+
+.surprise-heading {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    color: var(--wine-900);
+    margin-bottom: 8px;
+}
+
+.surprise-caption {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 28px;
+}
+
+.btn-open-surprise {
+    background: var(--wine-700);
+    color: #ffffff;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 14px 32px;
+    border: none;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(158, 42, 59, 0.3);
+    transition: var(--transition);
+}
+
+.btn-open-surprise:hover {
+    background: var(--wine-800);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(158, 42, 59, 0.4);
+}
+
+/* ==========================================================================
+   MODAIS (SURPRESA, EDIÇÃO DA CARTA & LIGHTBOX)
+   ========================================================================== */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(30, 20, 24, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.is-active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-card {
+    background: #FFFFFF;
+    border-radius: var(--radius-lg);
+    padding: 40px 36px;
+    max-width: 520px;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+    transform: scale(0.94);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    text-align: center;
+}
+
+.modal-overlay.is-active .modal-card {
+    transform: scale(1);
+}
+
+.modal-close {
+    position: absolute;
+    top: 16px;
+    right: 18px;
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    color: var(--text-muted);
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+.modal-close:hover {
+    color: var(--wine-900);
+}
+
+.modal-heart {
+    font-size: 3rem;
+    margin-bottom: 12px;
+}
+
+.modal-heading {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    color: var(--wine-900);
+    margin-bottom: 16px;
+}
+
+.modal-sub {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+}
+
+.modal-message p {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 14px;
+}
+
+.modal-special-line {
+    font-family: var(--font-hand);
+    font-size: 1.45rem;
+    color: var(--wine-800);
+    font-weight: 700;
+}
+
+.modal-action-row {
+    margin-top: 28px;
+}
+
+.btn-hug {
+    background: var(--wine-700);
+    color: #ffffff;
+    border: none;
+    border-radius: var(--radius-full);
+    padding: 14px 26px;
+    font-size: 0.98rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 8px 20px rgba(158, 42, 59, 0.3);
+    transition: var(--transition);
+}
+
+.btn-hug:hover {
+    background: var(--wine-800);
+    transform: scale(1.03);
+}
+
+.hug-counter {
+    background: rgba(255, 255, 255, 0.25);
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+}
+
+/* Modal de Edição da Cartinha */
+.edit-card {
+    text-align: left;
+    max-width: 600px;
+}
+
+.letter-textarea {
+    width: 100%;
+    padding: 16px;
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+    resize: vertical;
+    outline: none;
+    margin-bottom: 20px;
+}
+
+.letter-textarea:focus {
+    border-color: var(--wine-700);
+    box-shadow: 0 0 0 3px rgba(158, 42, 59, 0.1);
+}
+
+.edit-buttons-row {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+.btn-save-letter {
+    background: var(--wine-700);
+    color: #ffffff;
+    border: none;
+    border-radius: var(--radius-full);
+    padding: 10px 22px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-save-letter:hover {
+    background: var(--wine-800);
+}
+
+.btn-reset-letter {
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-full);
+    padding: 10px 18px;
+    font-size: 0.88rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-reset-letter:hover {
+    color: var(--text-primary);
+    background: var(--bg-card-subtle);
+}
+
+/* Lightbox de fotos */
+.lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(20, 14, 16, 0.88);
+    backdrop-filter: blur(12px);
+    z-index: 1100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.lightbox-overlay.is-active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.lightbox-box {
+    max-width: 700px;
+    width: 100%;
+    text-align: center;
+}
+
+#lightbox-img {
+    max-width: 100%;
+    max-height: 75vh;
+    border-radius: 4px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    background: #ffffff;
+    padding: 10px;
+}
+
+.lightbox-caption {
+    font-family: var(--font-hand);
+    font-size: 1.6rem;
+    color: #FAF7F2;
+    margin-top: 14px;
+}
+
+.lightbox-close-btn {
+    position: absolute;
+    top: 24px;
+    right: 28px;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 36px;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.lightbox-close-btn:hover {
+    opacity: 1;
+}
+
+/* ==========================================================================
+   RODAPÉ
+   ========================================================================== */
+
+.footer {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 40px 20px;
+    border-top: 1px solid var(--border-soft);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.footer p {
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.footer-date {
+    font-size: 0.8rem;
+    margin-top: 4px;
+    display: block;
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE (MOBILE-FIRST)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .header-music-pill {
+        top: 12px;
+        right: 12px;
+        padding: 6px 12px 6px 8px;
+    }
+    .pill-title { font-size: 0.78rem; }
+    .pill-artist { font-size: 0.68rem; }
+
+    .hero-section {
+        min-height: 85vh;
+        padding-top: 70px;
+    }
+
+    .envelope:not(.is-open) .letter-paper {
+        max-height: 0;
+        opacity: 0;
+        padding: 0 22px;
+        margin: 0 10px;
+    }
+
+    .envelope.is-open .letter-paper {
+        max-height: 2000px;
+        opacity: 1;
+        padding: 30px 22px;
+        margin: 10px 10px 18px;
+    }
+
+    .letter-salutation { font-size: 1.45rem; }
+    .letter-paragraphs p { font-size: 0.98rem; }
+
+    .acoustic-player-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 28px 20px;
+        gap: 24px;
+    }
+
+    .player-actions {
+        justify-content: center;
+    }
+
+    .external-music-links {
+        justify-content: center;
+    }
+
+    .journal-timeline {
+        padding-left: 0;
+    }
+
+    .journal-timeline::before {
+        left: 36px;
+    }
+
+    .journal-entry {
+        gap: 14px;
+    }
+
+    .journal-date-col {
+        width: 54px;
+    }
+
+    .day-badge { font-size: 1.2rem; }
+    .month-badge { font-size: 0.6rem; }
+
+    .journal-content-card {
+        padding: 16px 18px;
+    }
+
+    .counter-grid {
+        gap: 6px;
+    }
+
+    .counter-item {
+        min-width: 58px;
+        padding: 6px 4px;
+    }
+
+    .counter-number {
+        font-size: 1.6rem;
+    }
+}
